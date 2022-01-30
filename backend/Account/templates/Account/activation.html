@@ -1,0 +1,8 @@
+{% block subject %}
+    【TEST】 本登録の設定
+{% endblock subject %}
+
+{% block text_body %}
+    {{ name }}さま
+    {{ protocol }}://{{ domain }}/{{ url|safe }}
+{% endblock text_body %}

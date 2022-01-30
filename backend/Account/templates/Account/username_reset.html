@@ -1,0 +1,9 @@
+{% block subject %}
+    【TEST】 メールアドレス変更
+{% endblock subject %}
+
+{% block text_body %}
+    {{ name }}さま
+    パスワード変更URL
+    {{{ protocol }}://{{ domain }}/{{ url }}
+{% endblock text_body %}

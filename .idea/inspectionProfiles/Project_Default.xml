@@ -1,0 +1,102 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="CssUnknownProperty" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myCustomPropertiesEnabled" value="true" />
+      <option name="myIgnoreVendorSpecificProperties" value="false" />
+      <option name="myCustomPropertiesList">
+        <value>
+          <list size="6">
+            <item index="0" class="java.lang.String" itemvalue="user-select" />
+            <item index="1" class="java.lang.String" itemvalue="　background" />
+            <item index="2" class="java.lang.String" itemvalue="　padding" />
+            <item index="3" class="java.lang.String" itemvalue="　opacity" />
+            <item index="4" class="java.lang.String" itemvalue="　color" />
+            <item index="5" class="java.lang.String" itemvalue="scrollbar-width" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="70" name="JavaScript" />
+        <language minSize="459" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="15">
+            <item index="0" class="java.lang.String" itemvalue="aria-label" />
+            <item index="1" class="java.lang.String" itemvalue="name" />
+            <item index="2" class="java.lang.String" itemvalue="v-for" />
+            <item index="3" class="java.lang.String" itemvalue="nowrap" />
+            <item index="4" class="java.lang.String" itemvalue="v-if" />
+            <item index="5" class="java.lang.String" itemvalue="v-else-if" />
+            <item index="6" class="java.lang.String" itemvalue="v-else" />
+            <item index="7" class="java.lang.String" itemvalue="@click" />
+            <item index="8" class="java.lang.String" itemvalue="@change" />
+            <item index="9" class="java.lang.String" itemvalue="item" />
+            <item index="10" class="java.lang.String" itemvalue="v-model" />
+            <item index="11" class="java.lang.String" itemvalue="v-bind:name" />
+            <item index="12" class="java.lang.String" itemvalue=":name" />
+            <item index="13" class="java.lang.String" itemvalue="v-on:click" />
+            <item index="14" class="java.lang.String" itemvalue="label" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="13">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="tr" />
+            <item index="7" class="java.lang.String" itemvalue="form" />
+            <item index="8" class="java.lang.String" itemvalue="transition" />
+            <item index="9" class="java.lang.String" itemvalue="style" />
+            <item index="10" class="java.lang.String" itemvalue="qrcode-stream" />
+            <item index="11" class="java.lang.String" itemvalue="qrcode-drop-zone" />
+            <item index="12" class="java.lang.String" itemvalue="qrcode-capture" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E501" />
+          <option value="E125" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+          <option value="N801" />
+          <option value="N803" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="int.__getitem__" />
+          <option value="int.index" />
+          <option value="str.save" />
+          <option value="str.update" />
+          <option value="set.*" />
+          <option value="life.views.TestView.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

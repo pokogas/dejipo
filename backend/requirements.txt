@@ -1,0 +1,9 @@
+Django==3.2.9
+django_filter==21.1
+django_templated_mail==1.1.1
+djangorestframework==3.13.1
+djoser==2.1.0
+templated_mail==0.4.0.2
+django-cors-headers==3.11.0
+gunicorn>=20.0.4
+psycopg2-binary>=2.8
