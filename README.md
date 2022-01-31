@@ -1,26 +1,18 @@
-# N予備校冬のWEBアプリケーションコンテスト2021
+# デジポ
 
-#作品名
-DEJIPO:デジポ
-
-#サイト
-"aaaaa"
 
 #何が出来るの？
 ポイントを作れたり作ったポイントで取引が出来ます！
 イベントとかで使用したい場合は招待制にするなどして使えます！
 
-#使い方
-- ユーザーリスト
-
-|  メールアドレス  |  パスワード  |
-| ---- | ---- |
-|  user1@test.com  |  testuserpass1  |
-|  user2@test.com  |  testuserpass2  |
-|  user3@test.com  |  testuserpass3  |
-|  user4@test.com  |  testuserpass4  |
-
-
+# デプロイ
+ 
+```bash
+docker-compose -f docker-compose.yml -f prod.yml build
+```
+```bash
+docker-compose -f docker-compose.yml -f prod.yml up
+```
 #使用した技術
 - フロントエンド
    - nuxt.js
