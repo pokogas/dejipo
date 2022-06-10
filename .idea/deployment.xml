@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" serverName="dejipo.com" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="poko@160.251.43.88:63824 key">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="poko@160.251.43.88:63824 key (1)">
+      <paths name="dejipo.com">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

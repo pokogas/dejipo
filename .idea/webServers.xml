@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="595f2f49-d03e-4eb2-a459-0f91b2a9f094" name="dejipo.com">
+        <fileTransfer rootFolder="/home/poko" accessType="SFTP" host="dejipo.com" port="54421" sshConfigId="1e549224-7676-4d7a-be4a-1faae2269e92" sshConfig="poko@dejipo.com:54421 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

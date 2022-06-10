@@ -1,8 +1,12 @@
 <template>
   <div>
     <v-container fluid>
-      <nuxt-link :to="`/management/${$route.params.opName}/transaction/`">戻る</nuxt-link>
-      <p class="text-h4">トランザクション作成</p>
+      <nuxt-link :to="`/management/${$route.params.opName}/transaction/`">
+        戻る
+      </nuxt-link>
+      <p class="text-h4">
+        トランザクション作成
+      </p>
       <v-container>
         <v-card class="pa-5 mx-auto" max-width="600px">
           <div class="mb-3">
@@ -11,7 +15,8 @@
               v-model="selection"
               active-class="deep-purple accent-4 white--text"
               column
-              mandatory>
+              mandatory
+            >
               <v-chip>支払い</v-chip>
               <v-chip>付与</v-chip>
             </v-chip-group>
@@ -22,19 +27,22 @@
               <v-col cols="6">
                 <v-form ref="form">
                   <v-text-field
+                    v-model="point"
                     label="0"
                     solo
                     :rules="[rules.required, rules.counter, rules.max, rules.min, rules.isInt]"
                     type="number"
-                    v-model="point"
-                    @input="checkInput()"></v-text-field>
+                    @input="checkInput()"
+                  />
                 </v-form>
               </v-col>
             </v-row>
           </div>
           <div class="mb-3">
             <v-row class="justify-end mr-1">
-              <v-btn class="mr-2" color="#7886FF" @click="confirmBtn()"><span class="white--text">作成</span></v-btn>
+              <v-btn class="mr-2" color="#7886FF" @click="confirmBtn()">
+                <span class="white--text">作成</span>
+              </v-btn>
             </v-row>
           </div>
         </v-card>
@@ -42,39 +50,46 @@
           v-if="confirmDialog===true"
           v-model="confirmDialog"
           persistent
-          max-width="290">
+          max-width="290"
+        >
           <v-card>
             <v-simple-table class="mb-10" style="white-space:nowrap;">
               <template>
                 <tbody>
-                <tr>
-                  <td>用途</td>
-                  <td v-if="selection === 1">
-                    <v-chip color="green" dark label small>付与</v-chip>
-                  </td>
-                  <td v-if="selection === 0">
-                    <v-chip color="#FF7474" dark label small>支払い</v-chip>
-                  </td>
-                </tr>
-                <tr>
-                  <td>ポイント</td>
-                  <td>{{ point }} P</td>
-                </tr>
+                  <tr>
+                    <td>用途</td>
+                    <td v-if="selection === 1">
+                      <v-chip color="green" dark label small>
+                        付与
+                      </v-chip>
+                    </td>
+                    <td v-if="selection === 0">
+                      <v-chip color="#FF7474" dark label small>
+                        支払い
+                      </v-chip>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>ポイント</td>
+                    <td>{{ point }} P</td>
+                  </tr>
                 </tbody>
               </template>
             </v-simple-table>
             <v-card-actions>
-              <v-spacer></v-spacer>
+              <v-spacer />
               <v-btn
                 color="red darken-3"
                 text
-                @click="confirmDialog = false">
+                @click="confirmDialog = false"
+              >
                 キャンセル
               </v-btn>
               <v-btn
                 color="green darken-1"
                 text
-                @click="completeBtn()">
+                @click="completeBtn()"
+              >
                 確定
               </v-btn>
             </v-card-actions>
@@ -86,14 +101,20 @@
 </template>
 <script>
 export default {
-  layout: "management/Main",
-  head() {
+  layout: 'management/Main',
+  async asyncData ({ app, params, error }) {
+    const opDataRes = await app.$axios.$get(`api/management/op-detail/?op_name=${params.opName}`)
+      .catch(function (e) {
+        if (e.response && e.response.status === 400) {
+          return error({})
+        }
+      }
+      )
     return {
-      title: `${this.$route.params.opName}-トランザクション-作成`,
-      titleTemplate: 'DEJIPO-Management'
+      op_data: opDataRes
     }
   },
-  data() {
+  data () {
     return {
       point: 0,
       selection: 0,
@@ -103,33 +124,39 @@ export default {
         counter: value => value.length <= 8 || '8桁以下で入力して下さい。',
         max: value => value <= 99999999 || '99999999以下で入力して下さい。',
         min: value => value > 0 || '1以上で入力して下さい。',
-        isInt: value => Number.isInteger(Number(value)) || '小数点は使用できません',
-      },
+        isInt: value => Number.isInteger(Number(value)) || '小数点は使用できません'
+      }
     }
   },
-  created() {
+  head () {
+    return {
+      title: `${this.$route.params.opName}-トランザクション-作成`,
+      titleTemplate: 'DEJIPO-Management'
+    }
   },
   computed: {
-    auth() {
+    auth () {
       return this.$auth
-    },
+    }
+  },
+  created () {
   },
   methods: {
-    checkInput() {
-      this.point = this.point.replace(/^0+/, '');
+    checkInput () {
+      this.point = this.point.replace(/^0+/, '')
     },
-    confirmBtn() {
+    confirmBtn () {
       if (this.$refs.form.validate()) {
-        this.point = this.point.replace(/^0+/, '');
+        this.point = this.point.replace(/^0+/, '')
         this.confirmDialog = true
       }
     },
-    completeBtn() {
+    completeBtn () {
       console.log(`${this.point} ${this.selection}`)
       return this.complete()
     },
-    complete() {
-      let params = this.$route.params.opName
+    complete () {
+      const params = this.$route.params.opName
       this.$axios.$post(`api/management/management-transaction-create/?op_name=${params}&use_usage=${this.selection}&point=${this.point}`).then(function (res) {
         const t_id = res.detail.t_id
         this.confirmDialog = false
@@ -139,24 +166,12 @@ export default {
           toast: true,
           showConfirmButton: false,
           timer: 2500,
-          title: `トランザクションを作成しました`,
+          title: 'トランザクションを作成しました'
         })
-        return this.$router.replace({path: `/management/${this.$route.params.opName}/transaction/detail/${t_id}`});
+        return this.$router.replace({ path: `/management/${this.$route.params.opName}/transaction/detail/${t_id}` })
       }.bind(this))
     }
-  },
-  async asyncData({app, params, error}) {
-    let opDataRes = await app.$axios.$get(`api/management/op-detail/?op_name=${params.opName}`)
-      .catch(function (e) {
-          if (e.response && e.response.status === 400) {
-            return error({});
-          }
-        }
-      )
-    return {
-      op_data: opDataRes,
-    }
-  },
+  }
 }
 </script>
 <style scoped>
